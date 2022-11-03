@@ -23,6 +23,8 @@
                 max = sno;
             }
 
+
+
             // display the result
             Console.WriteLine($"The maximum of {fno} and {sno} is {max}");
             Console.WriteLine("The maxumum is " + max);

@@ -17,6 +17,7 @@
             // 
             double simpleInterest = principleAmount * time * interestRate / 100;
             Console.WriteLine($"The Simple Interest is {simpleInterest}");
+
         }
     }
 }

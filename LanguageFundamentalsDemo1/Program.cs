@@ -4,15 +4,17 @@
     {
         static void Main(string[] args)
         {
-            Employee e1 = new Employee();
+            //Product p1 = new Product();
+            //p1.ProductID = 111;
+            //p1.Name = "IPhone 14";
+            //p1.Rate = 125000;
+            //p1.Brand = "Apple";
+            //p1.Catagory = "Mobiles";
 
-            e1.EmpId = 111;
-            e1.SetName("Rama");
-            e1.SetSalary(-60000);
-
-            Console.WriteLine(e1.EmpId);
-            Console.WriteLine(e1.GetName());
-            Console.WriteLine(e1.GetSalary());
+            // Object Initialization Syntax
+            var p2 = new Product { ProductID = 111, Name = "IPhone 14 Plus" };
+            Product p3 = new Product { ProductID = 222 };
+            Product p4 = new Product { Name = "IPhone" };
 
 
         }
@@ -108,5 +110,7 @@
         public int Rate { get; set; }
         public string Brand { get; set; }
         public string Catagory { get; set; }
+
+
     }
 }

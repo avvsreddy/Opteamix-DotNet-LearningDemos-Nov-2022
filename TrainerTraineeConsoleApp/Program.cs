@@ -27,14 +27,16 @@
 
             Console.WriteLine($"Trainess count : {traineesCount}");
 
-            Unit u1 = new Unit { Duration = 60 };
-            Unit u2 = new Unit { Duration = 30 };
-            Unit u3 = new Unit { Duration = 120 };
-            Unit u4 = new Unit { Duration = 30 };
+            Unit u1 = new Unit { Duration = 60, Name = "u1" };
+            Unit u2 = new Unit { Duration = 30, Name = "u2" };
+            Unit u3 = new Unit { Duration = 120, Name = "u3" };
+            Unit u4 = new Unit { Duration = 30, Name = "u4" };
 
             Module m1 = new Module();
             m1.Units.Add(u1);
             m1.Units.Add(u2);
+            m1.Units.Add(u3);
+            m1.Units.Add(u4);
 
             Module m2 = new Module();
             //m2.Units.Add(u3);
@@ -46,6 +48,7 @@
 
             training.Course = c1;
             Console.WriteLine($"Total Duration : {training.GetTrainingDuration()}");
+            Console.WriteLine($"Lenghiest unit is: {training.GetLongestDurationUnitName()} ");
 
 
 
@@ -125,9 +128,21 @@
 
         public string GetLongestDurationUnitName()
         {
-            string unitName = null;
-            //return unit
-            return unitName;
+            int max = 0;
+            string name = null;
+            foreach (Module module in Course.Modules)
+            {
+                foreach (Unit unit in module.Units)
+                {
+                    if (unit.Duration >= max)
+                    {
+                        max = unit.Duration;
+                        name = unit.Name;
+                    }
+                }
+            }
+            return name;
+
         }
 
     }

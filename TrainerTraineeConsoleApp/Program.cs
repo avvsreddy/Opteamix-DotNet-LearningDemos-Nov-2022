@@ -8,6 +8,7 @@
             Organization org = new Organization();
             org.Name = "Pratian";
             Trainer trainer = new Trainer();
+            trainer.Name = "Venkat";
 
             trainer.Organization = org;
             training.Trainer = trainer;
@@ -19,6 +20,8 @@
 
             string orgName = training.GetTrainingOrgName();
             Console.WriteLine($"Training Org Name: {orgName}");
+
+            Console.WriteLine($"Trainer Name: {training.GetTrainerName()}");
 
             int traineesCount = training.GetTraineesCount();
 
@@ -57,6 +60,7 @@
 
     class Trainer
     {
+        public string Name { get; set; }
         public Organization Organization { get; set; }
         public List<Trainee> Trainees { get; set; } = new List<Trainee>();
         public List<Training> Trainings { get; set; } = new List<Training>();
@@ -114,6 +118,18 @@
             return duration;
         }
 
+        public string GetTrainerName()
+        {
+            return Trainer.Name;
+        }
+
+        public string GetLongestDurationUnitName()
+        {
+            string unitName = null;
+            //return unit
+            return unitName;
+        }
+
     }
 
     class Course
@@ -129,6 +145,7 @@
     class Unit
     {
         public int Duration { get; set; }
+        public string Name { get; set; }
         public List<Topic> Topics { get; set; } = new List<Topic>();
     }
     class Topic

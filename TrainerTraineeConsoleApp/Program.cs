@@ -4,16 +4,48 @@
     {
         static void Main(string[] args)
         {
-            // Static Arrays
-            // store 10 int numbers
-            int[] n = new int[10];
-            n[0] = 10;
+            Training training = new Training();
+            Organization org = new Organization();
+            org.Name = "Pratian";
+            Trainer trainer = new Trainer();
 
-            int a;
+            trainer.Organization = org;
+            training.Trainer = trainer;
 
-            // Dynamic Arrays
-            // store n number of ints and process
-            List<int> numbers = new List<int>();
+            Trainee t1 = new Trainee();
+            training.Trainees.Add(t1);
+            Trainee t2 = new Trainee();
+            training.Trainees.Add(t2);
+
+            string orgName = training.GetTrainingOrgName();
+            Console.WriteLine($"Training Org Name: {orgName}");
+
+            int traineesCount = training.GetTraineesCount();
+
+            Console.WriteLine($"Trainess count : {traineesCount}");
+
+            Unit u1 = new Unit { Duration = 60 };
+            Unit u2 = new Unit { Duration = 30 };
+            Unit u3 = new Unit { Duration = 120 };
+            Unit u4 = new Unit { Duration = 30 };
+
+            Module m1 = new Module();
+            m1.Units.Add(u1);
+            m1.Units.Add(u2);
+
+            Module m2 = new Module();
+            //m2.Units.Add(u3);
+            //m2.Units.Add(u4);
+
+            Course c1 = new Course();
+            c1.Modules.Add(m1);
+            c1.Modules.Add(m2);
+
+            training.Course = c1;
+            Console.WriteLine($"Total Duration : {training.GetTrainingDuration()}");
+
+
+
 
         }
     }
@@ -42,6 +74,46 @@
         public Trainer Trainer { get; set; }
         public List<Trainee> Trainees { get; set; } = new List<Trainee>();
         public Course Course { get; set; }
+
+        public string GetTrainingOrgName()
+        {
+            return Trainer.Organization.Name;
+        }
+
+        public int GetTraineesCount()
+        {
+            return Trainees.Count;
+        }
+
+        public int GetTrainingDuration()
+        {
+            int duration = 0;
+
+            // TODO: calculate the total duration
+
+            // iterate each moudle
+            //for (int i = 0; i < Course.Modules.Count; i++)
+            //{
+            //    Module m = Course.Modules[i];
+            //    // Iterate each unit
+            //    for (int j = 0; j < m.Units.Count; j++)
+            //    {
+            //        Unit u = m.Units[j];
+            //        duration += u.Duration;
+            //    }
+            //}
+
+            foreach (Module module in Course.Modules)
+            {
+                foreach (Unit unit in module.Units)
+                {
+                    duration += unit.Duration;
+                }
+            }
+
+            return duration;
+        }
+
     }
 
     class Course

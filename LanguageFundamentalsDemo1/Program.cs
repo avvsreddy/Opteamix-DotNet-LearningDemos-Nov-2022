@@ -29,7 +29,7 @@
 
         private int empid;
         private string fname;
-        private string lname;
+        private string name;
 
         private string _backingfield323232345345345;
         public double salary;

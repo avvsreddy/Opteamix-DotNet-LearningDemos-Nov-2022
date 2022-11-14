@@ -12,7 +12,7 @@
             //p1.Catagory = "Mobiles";
 
             // Object Initialization Syntax
-            var p2 = new Product { ProductID = 111, Name = "IPhone 14 Plus" };
+            var p2 = new { ProductID = 111, Name = "IPhone 14 Plus" };
             Product p3 = new Product { ProductID = 222 };
             Product p4 = new Product { Name = "IPhone" };
 
